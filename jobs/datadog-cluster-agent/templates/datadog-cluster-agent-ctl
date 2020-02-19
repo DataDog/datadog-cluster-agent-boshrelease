@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+# Unless explicitly stated otherwise all files in this repository are licensed under the Apache 2.0 License.
+# This product includes software developed at Datadog (https://www.datadoghq.com/).
+# Copyright 2017-Present Datadog, Inc.
+
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+
+export NAME="datadog-cluster-agent"
+export JOB_DIR="/var/vcap/jobs/${NAME}"
+export LOG_DIR="/var/vcap/sys/log/${NAME}"
+export RUN_DIR="/var/vcap/sys/run/${NAME}"
+
+export PIDFILE="${RUN_DIR}/${NAME}.pid"
+export DD_CLUSTER_AGENT="${JOB_DIR}/bin/datadog-cluster-agent-cloudfoundry"
+export AGENT_COMMAND="${DD_CLUSTER_AGENT} run -c ${JOB_DIR}/config/"
+
+source ${JOB_DIR}/bin/helpers.sh
+
+case ${1:-help} in
+  start)
+    echon_log "Starting Datadog Cluster Agent: "
+
+    # There is a rare bug that can cause monit to lose track of the agent.
+    # Monit thinks the agent is not running, but it is.
+    # An orphaned agent must be killed before attempting to start it again,
+    # So, run a check and kill it before attempting to start it.
+    check_if_running_and_kill $AGENT_COMMAND "false"
+
+    pid_guard $PIDFILE "datadog-cluster-agent-cloudfoundry"
+    (
+        {
+            exec chpst -v -u vcap:vcap $AGENT_COMMAND -p "$PIDFILE"
+        } >>${LOG_DIR}/${NAME}.stdout.log \
+        2>>${LOG_DIR}/${NAME}.stderr.log
+    ) &
+    echo "$(<${PIDFILE}). Done"
+    ;;
+  stop)
+    printf_log "Stopping Datadog Cluster Agent: $(<${PIDFILE}). "
+    stop_agent $DD_CLUSTER_AGENT
+    kill_and_wait $PIDFILE
+    rm -f $PIDFILE
+    printf_log "Done"
+    ;;
+  *)
+    echo "Usage: $0 {start|stop}"
+    ;;
+esac
+exit 0

@@ -1,0 +1,5 @@
+check process datadog-cluster-agent
+  with pidfile /var/vcap/sys/run/datadog-cluster-agent/datadog-cluster-agent.pid
+  start program "/var/vcap/jobs/datadog-cluster-agent/bin/datadog-cluster-agent-ctl start"
+  stop program "/var/vcap/jobs/datadog-cluster-agent/bin/datadog-cluster-agent-ctl stop"
+  group vcap
