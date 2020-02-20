@@ -7,41 +7,42 @@
 set -e # exit immediately if a simple command exits with a non-zero status
 set -u # report the usage of uninitialized variables
 
-
 export NAME="datadog-cluster-agent"
 export JOB_DIR="/var/vcap/jobs/${NAME}"
 export LOG_DIR="/var/vcap/sys/log/${NAME}"
 export RUN_DIR="/var/vcap/sys/run/${NAME}"
 
 export PIDFILE="${RUN_DIR}/${NAME}.pid"
-export DD_CLUSTER_AGENT="${JOB_DIR}/bin/datadog-cluster-agent-cloudfoundry"
-export AGENT_COMMAND="${DD_CLUSTER_AGENT} run -c ${JOB_DIR}/config/"
+export DD_CLUSTER_AGENT="/var/vcap/packages/${NAME}/datadog-cluster-agent-cloudfoundry"
+export AGENT_COMMAND="${DD_CLUSTER_AGENT} start -c ${JOB_DIR}/config/"
 
-source ${JOB_DIR}/bin/helpers.sh
+function printf_log {
+  local message=${1}
+  local timestamp=`date +%y:%m:%d-%H:%M:%S`
+  printf "${timestamp} :: ${message}\n" | tee -a "/var/vcap/sys/log/${NAME}/${NAME}_script.log"
+}
+
+function echon_log {
+  local message=${1}
+  local timestamp=`date +%y:%m:%d-%H:%M:%S`
+  printf "${timestamp} :: ${message} \n" | tee -a "/var/vcap/sys/log/${NAME}/${NAME}_script.log"
+}
 
 case ${1:-help} in
   start)
     echon_log "Starting Datadog Cluster Agent: "
-
-    # There is a rare bug that can cause monit to lose track of the agent.
-    # Monit thinks the agent is not running, but it is.
-    # An orphaned agent must be killed before attempting to start it again,
-    # So, run a check and kill it before attempting to start it.
-    check_if_running_and_kill $AGENT_COMMAND "false"
-
-    pid_guard $PIDFILE "datadog-cluster-agent-cloudfoundry"
     (
         {
-            exec chpst -v -u vcap:vcap $AGENT_COMMAND -p "$PIDFILE"
+            exec chpst -v -u vcap:vcap $AGENT_COMMAND
         } >>${LOG_DIR}/${NAME}.stdout.log \
         2>>${LOG_DIR}/${NAME}.stderr.log
     ) &
+    echo $! > ${PIDFILE}
     echo "$(<${PIDFILE}). Done"
     ;;
   stop)
     printf_log "Stopping Datadog Cluster Agent: $(<${PIDFILE}). "
-    stop_agent $DD_CLUSTER_AGENT
-    kill_and_wait $PIDFILE
+    kill -9 `cat $PIDFILE`
     rm -f $PIDFILE
     printf_log "Done"
     ;;

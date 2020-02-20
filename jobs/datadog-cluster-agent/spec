@@ -4,8 +4,7 @@ description: Datadog Cluster Agent for Cloud Foundry
 
 templates:
   datadog-cluster-agent-ctl: bin/datadog-cluster-agent-ctl
-  helpers.sh: bin/helpers.sh
-  datadog.yaml.erb: config/datadog.yaml
+  datadog-cluster.yaml.erb: config/datadog-cluster.yaml
   bbs_ca.crt.erb: config/bbs_ca.crt
   bbs_client.crt.erb: config/bbs_client.crt
   bbs_client.key.erb: config/bbs_client.key
@@ -29,3 +28,6 @@ properties:
   cluster_agent.warmup_duration:
     description: "Number of seconds to wait for Node agents to report before starting to dispatch configurations"
     default: 30
+  cluster_agent.log_level:
+    description: "Logging level for the cluster agent"
+    default: "INFO"
