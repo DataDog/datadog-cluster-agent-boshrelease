@@ -10,14 +10,15 @@ cluster_checks:
 cluster_agent:
   auth_token: abc # TODO: do we need this? how would the node agents authenticate?
 
+cloud_foundry_bbs:
+  url: <%= p('cluster_agent.bbs_url') %>
+  poll_interval: <%= p('cluster_agent.bbs_poll_interval') %>
+  ca_file: /var/vcap/jobs/datadog-cluster-agent/config/bbs_ca.crt
+  cert_file: /var/vcap/jobs/datadog-cluster-agent/config/bbs_client.crt
+  key_file: /var/vcap/jobs/datadog-cluster-agent/config/bbs_client.key
+
 config_providers:
   - name: cloudfoundry-bbs
-    template_url: <%= p('cluster_agent.bbs_url') %>
-    polling: true
-    poll_interval: <%= p('cluster_agent.bbs_poll_interval') %>s
-    ca_file: /var/vcap/jobs/datadog-cluster-agent/config/bbs_ca.crt
-    cert_file: /var/vcap/jobs/datadog-cluster-agent/config/bbs_client.crt
-    key_file: /var/vcap/jobs/datadog-cluster-agent/config/bbs_client.key
 
 listeners:
   - name: cloudfoundry-bbs
