@@ -12,6 +12,13 @@ templates:
 packages:
   - datadog-cluster-agent
 
+provides:
+  - name: datadog-cluster-agent
+    type: datadog-cluster-agent-http
+    properties:
+     - cluster_agent.port
+     - cluster_agent.token
+
 properties:
   cluster_agent.bbs_url:
     description: "URL of the BBS API"
@@ -31,3 +38,11 @@ properties:
   cluster_agent.log_level:
     description: "Logging level for the cluster agent"
     default: "INFO"
+  cluster_agent.token:
+    description: "Token for Node Agent <-> Cluster Agent authentication"
+  cluster_agent.port:
+    description: "Port on which the Cluster Agent can be reached by Node Agents"
+    default: 5005
+  cluster_agent.enabled:
+    description: "Whether or not to enable the Cluster Agent"
+    default: true

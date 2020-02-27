@@ -8,7 +8,8 @@ cluster_checks:
   warmup_duration: <%= p('cluster_agent.warmup_duration') %>
   
 cluster_agent:
-  auth_token: abc # TODO: do we need this? how would the node agents authenticate?
+  cmd_port: <%= p('cluster_agent.port') %>
+  auth_token: <%= p('cluster_agent.token') %>
 
 cloud_foundry_bbs:
   url: <%= p('cluster_agent.bbs_url') %>
