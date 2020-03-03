@@ -14,7 +14,7 @@ export RUN_DIR="/var/vcap/sys/run/${NAME}"
 
 export PIDFILE="${RUN_DIR}/${NAME}.pid"
 export DD_CLUSTER_AGENT="/var/vcap/packages/${NAME}/datadog-cluster-agent-cloudfoundry"
-export AGENT_COMMAND="${DD_CLUSTER_AGENT} start -c ${JOB_DIR}/config/"
+export AGENT_COMMAND="${DD_CLUSTER_AGENT} run -c ${JOB_DIR}/config/"
 
 function printf_log {
   local message=${1}
