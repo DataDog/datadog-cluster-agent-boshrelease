@@ -1,7 +1,7 @@
 api_key: "" # TODO: template
 
-log_level: <%= p("cluster_agent.log_level") %>
-log_file: /var/vcap/sys/log/datadog-cluster-agent/cluster-agent.log
+log_level: "<%= p("cluster_agent.log_level") %>"
+log_file: "/var/vcap/sys/log/datadog-cluster-agent/cluster-agent.log"
 
 cluster_checks:
   enabled: true
@@ -9,14 +9,15 @@ cluster_checks:
   
 cluster_agent:
   cmd_port: <%= p('cluster_agent.port') %>
-  auth_token: <%= p('cluster_agent.token') %>
+  auth_token: "<%= p('cluster_agent.token') %>"
 
 cloud_foundry_bbs:
-  url: <%= p('cluster_agent.bbs_url') %>
+  url: "<%= p('cluster_agent.bbs_url') %>"
+  locket_api_location: "<%= p('cluster_agent.locket_api_location') %>"
   poll_interval: <%= p('cluster_agent.bbs_poll_interval') %>
-  ca_file: /var/vcap/jobs/datadog-cluster-agent/config/bbs_ca.crt
-  cert_file: /var/vcap/jobs/datadog-cluster-agent/config/bbs_client.crt
-  key_file: /var/vcap/jobs/datadog-cluster-agent/config/bbs_client.key
+  ca_file: "/var/vcap/jobs/datadog-cluster-agent/config/bbs_ca.crt"
+  cert_file: "/var/vcap/jobs/datadog-cluster-agent/config/bbs_client.crt"
+  key_file: "/var/vcap/jobs/datadog-cluster-agent/config/bbs_client.key"
 
 config_providers:
   - name: cloudfoundry-bbs
@@ -24,3 +25,5 @@ config_providers:
 
 listeners:
   - name: cloudfoundry-bbs
+
+leader_election: true

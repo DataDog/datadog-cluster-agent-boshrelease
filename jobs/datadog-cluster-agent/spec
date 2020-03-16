@@ -23,6 +23,9 @@ properties:
   cluster_agent.bbs_url:
     description: "URL of the BBS API"
     default: "https://bbs.service.cf.internal:8889"
+  cluster_agent.locket_api_location:
+    description: "Locket API location"
+    default: "locket.service.cf.internal:8891"
   cluster_agent.bbs_poll_interval:
     description: "Interval for refreshing autodiscovery data from BBS API (in seconds)"
     default: 15
