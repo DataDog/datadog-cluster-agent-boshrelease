@@ -6,10 +6,12 @@ log_file: "/var/vcap/sys/log/datadog-cluster-agent/cluster-agent.log"
 cluster_checks:
   enabled: true
   warmup_duration: <%= p('cluster_agent.warmup_duration') %>
-  
+
 cluster_agent:
   cmd_port: <%= p('cluster_agent.port') %>
   auth_token: "<%= p('cluster_agent.token') %>"
+
+cloud_foundry: true
 
 cloud_foundry_bbs:
   url: "<%= p('cluster_agent.bbs_url') %>"
@@ -26,4 +28,4 @@ config_providers:
 listeners:
   - name: cloudfoundry-bbs
 
-leader_election: true
+leader_election: false

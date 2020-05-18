@@ -18,6 +18,7 @@ provides:
     properties:
      - cluster_agent.port
      - cluster_agent.token
+     - cluster_agent.enabled
 
 properties:
   cluster_agent.bbs_url:

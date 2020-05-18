@@ -7,4 +7,6 @@
 set -e -x
 
 mkdir -p ${BOSH_INSTALL_TARGET}
+chmod +x datadog-cluster-agent/datadog-cluster-agent-cloudfoundry
+chown vcap:vcap datadog-cluster-agent/datadog-cluster-agent-cloudfoundry
 cp datadog-cluster-agent/datadog-cluster-agent-cloudfoundry ${BOSH_INSTALL_TARGET}/
