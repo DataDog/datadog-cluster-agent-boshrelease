@@ -82,6 +82,6 @@ cp $WORKING_DIR/datadog-agent-cluster-release.tgz archive/datadog-agent-cluster-
 
 if [ "$RELEASE_BUCKET" -a "$RELEASE_BUCKET" != "false" ]; then
     # the production release bucket is cloudfoundry.datadoghq.com/datadog-cluster-agent
-    aws s3 cp datadog-agent-release.tgz s3://$RELEASE_BUCKET/datadog-cluster-agent-boshrelease-$VERSION.tgz --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers full=id=3a6e02b08553fd157ae3fb918945dd1eaae5a1aa818940381ef07a430cf25732
-    aws s3 cp datadog-agent-release.tgz s3://$RELEASE_BUCKET/datadog-cluster-agent-boshrelease-latest.tgz --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers full=id=3a6e02b08553fd157ae3fb918945dd1eaae5a1aa818940381ef07a430cf25732
+    aws s3 cp datadog-cluster-agent-release.tgz s3://$RELEASE_BUCKET/datadog-cluster-agent-release-$VERSION.tgz --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers full=id=3a6e02b08553fd157ae3fb918945dd1eaae5a1aa818940381ef07a430cf25732
+    aws s3 cp datadog-cluster-agent-release.tgz s3://$RELEASE_BUCKET/datadog-cluster-agent-release-latest.tgz --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers full=id=3a6e02b08553fd157ae3fb918945dd1eaae5a1aa818940381ef07a430cf25732
 fi
