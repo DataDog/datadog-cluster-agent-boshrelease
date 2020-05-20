@@ -1,3 +1,4 @@
 .dev_builds/
 dev_releases/
-src/datadog-cluster-agent/datadog-cluster-agent-cloudfoundry
+blobs/
+*.tgz
