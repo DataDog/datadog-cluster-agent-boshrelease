@@ -8,4 +8,4 @@ if [[ ! -z $VERSION ]]; then
 fi
 
 # Create the release
-bosh create-release --force --final --tarball=datadog-agent-cluster-boshrelease.tgz --name $RELEASE $VERSION_STRING
+bosh create-release --force --final --tarball=datadog-cluster-agent-boshrelease.tgz --name $RELEASE $VERSION_STRING
