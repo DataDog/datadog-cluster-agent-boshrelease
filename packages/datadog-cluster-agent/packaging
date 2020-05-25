@@ -7,5 +7,5 @@
 set -e -x
 
 mkdir -p ${BOSH_INSTALL_TARGET}
-tar -xf datadog-cluster-agent/datadog-cluster-agent-cloudfoundry.tar.xz
+tar -xf datadog-cluster-agent/datadog-cluster-agent-cloudfoundry.tar.xz -C datadog-cluster-agent
 cp datadog-cluster-agent/datadog-cluster-agent-cloudfoundry ${BOSH_INSTALL_TARGET}/
