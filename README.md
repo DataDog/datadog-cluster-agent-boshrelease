@@ -14,7 +14,7 @@ jobs:
   release: datadog-cluster-agent
   properties:
     cluster_agent:
-      token: <TOKEN>
+      token: <TOKEN>  # 32 or more characters in length 
       bbs_poll_interval: 10
       warmup_duration: 5
       log_level: INFO
