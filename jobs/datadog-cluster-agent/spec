@@ -43,7 +43,7 @@ properties:
     description: "Logging level for the cluster agent"
     default: "INFO"
   cluster_agent.token:
-    description: "Token for Node Agent <-> Cluster Agent authentication"
+    description: "Token for Node Agent <-> Cluster Agent authentication. This has to be 32 or more characters."
   cluster_agent.port:
     description: "Port on which the Cluster Agent can be reached by Node Agents"
     default: 5005
