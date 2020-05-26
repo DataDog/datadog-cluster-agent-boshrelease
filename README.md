@@ -119,9 +119,12 @@ VCAP_SERVICES: '{
 }'
 ```
 
-In the above example, the first item `web_server` is a configuration for a service running inside the application. There are no `variables`, and it uses the usual template variables `%%host%%` and `%%port%%` available with regular autodiscovery.
+In the above example, the first item `web_server` is a configuration for a service running inside the application.
+There are no `variables`, and it uses the usual template variables `%%host%%` and `%%port%%` available with regular autodiscovery.
 
-The second item `postgres-service-name` is a configuration for a service bound to the application. To resolve the template variables, it uses the `variables` dictionary to define the template variables used in the instance configuration. The values are the JSON Path where to find the actual variable in the service `postgres-service-name` defined in the `VCAP_SERVICES` environment variable.
+The second item `postgres-service-name` is a configuration for a service bound to the application.
+To resolve the template variables, it uses the `variables` dictionary to define the template variables used in the instance configuration.
+This dictionary contains JSONPath object indicating where to find the actual variable value in the service `postgres-service-name` defined in the `VCAP_SERVICES` environment variable.
 
 ## Improved tagging for application containers and processes discovery
 
