@@ -1,12 +1,12 @@
 # Datadog Cluster Agent Bosh Release
 
-This repository is a Bosh package for running the Datadog Cluster Agent on Cloudfoundry.
+This repository is a Bosh package for running the Datadog Cluster Agent on Cloud Foundry.
 
 This package is to be used in conjunction with the [Datadog Agent Bosh Release](https://github.com/datadog/datadog-agent-boshrelease).
-It provides a Bosh link (see [spec](jobs/datadog-cluster-agent/spec)) consumed by the Datadog Agent Bosh release in order to auto-discover and schedule integrations for your apps as well as improved tagging for application containers and processes discovery.
+It provides a Bosh link (see [spec](jobs/datadog-cluster-agent/spec)) consumed by the Datadog Agent Bosh release in order to Autodiscover and schedule integrations for your apps, as well as improved tagging for application containers and processes discovery.
 
 ## Deployment
-To deploy the Datadog Cluster Agent and share its Bosh link, provide a job like the following in a deploy manifest (cf [spec](jobs/datadog-cluster-agent/spec) for available properties):
+To deploy the Datadog Cluster Agent and share its Bosh link, provide a job like the following in a deploy manifest (refer to the [spec](jobs/datadog-cluster-agent/spec) for available properties):
 
 ```yaml
 jobs:
@@ -45,8 +45,8 @@ jobs:
 ## Integration configurations discovery
 The Datadog Cluster Agent discovers integrations based on an `AD_DATADOGHQ_COM` environment variable set in your applications.
 This environment variable is a JSON object containing the Autodiscovery configuration templates for your application. The Datadog Cluster Agent can discover and render two types of configurations:
-  1. configurations for services bound to your application, whether they be user-provided or from a service broker
-  1. configurations for services running inside your application, a web-server for instance
+  1. Configurations for services bound to your application, whether they be user-provided or from a service broker.
+  2. Configurations for services running inside your application, a web-server for instance.
 
 The JSON object should be a dictionary associating a service name to its Autodiscovery template:
 ```
@@ -61,11 +61,11 @@ The JSON object should be a dictionary associating a service name to its Autodis
 ```
 
 For services bound to the application, the `<SERVICE_NAME>` should be the name of the service as it appears in the `cf services` command output, for services running inside the application, it can be anything.  
-The `variables` key is used only for bound services to resolve template variables inside the configuration template. They should contain the JSON Path of the value you want in the `VCAP_SERVICES` environment variable that you can inspect with `cf env <APPLICATION_NAME>`.
+The `variables` key is used only for bound services to resolve template variables inside the configuration template. They should contain the JSON path of the value you want in the `VCAP_SERVICES` environment variable that you can inspect with `cf env <APPLICATION_NAME>`.
 
 ### Example
 
-For example, for a Cloudfoundry application running a web server bound to a PostgreSQL service, you could have the following Autodiscovery configuration in the `AD_DATADOGHQ_COM` environment variable:
+For example, for a Cloud Foundry application running a web server bound to a PostgreSQL service, you could have the following Autodiscovery configuration in the `AD_DATADOGHQ_COM` environment variable:
 
 ```
 AD_DATADOGHQ_COM: '{
@@ -120,12 +120,12 @@ VCAP_SERVICES: '{
 ```
 
 In the above example, the first item `web_server` is a configuration for a service running inside the application.
-There are no `variables`, and it uses the usual template variables `%%host%%` and `%%port%%` available with regular autodiscovery.
+There are no `variables`, and it uses the usual template variables `%%host%%` and `%%port%%` available with regular Autodiscovery.
 
 The second item `postgres-service-name` is a configuration for a service bound to the application.
 To resolve the template variables, it uses the `variables` dictionary to define the template variables used in the instance configuration.
-This dictionary contains JSONPath object indicating where to find the actual variable value in the service `postgres-service-name` defined in the `VCAP_SERVICES` environment variable.
+This dictionary contains a JSONPath object indicating where to find the actual variable value in the service `postgres-service-name` defined in the `VCAP_SERVICES` environment variable.
 
 ## Improved tagging for application containers and processes discovery
 
-The Datadog Cluster Agent automatically provides a tagger used by the Datadog Agent when discovering Cloudfoundry application containers without additional configuration, as soon as the two releases are linked as described in the [Deployment](#Deployment) section.
+The Datadog Cluster Agent automatically provides a tagger used by the Datadog Agent when discovering Cloud Foundry application containers without additional configuration, as soon as the two releases are linked as described in the [Deployment](#Deployment) section.
