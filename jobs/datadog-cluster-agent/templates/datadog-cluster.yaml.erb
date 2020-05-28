@@ -1,5 +1,6 @@
 api_key: "" # TODO: template
 
+<% if p("cluster_agent.enabled") == true %>
 log_level: "<%= p("cluster_agent.log_level") %>"
 log_file: "/var/vcap/sys/log/datadog-cluster-agent/cluster-agent.log"
 
@@ -29,3 +30,4 @@ listeners:
   - name: cloudfoundry-bbs
 
 leader_election: false
+<% end %>
