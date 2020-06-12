@@ -1,0 +1,21 @@
+name: datadog-cluster-agent
+version: 1.0.0
+commit_hash: 9780d85
+uncommitted_changes: true
+jobs:
+- name: datadog-cluster-agent
+  version: 3a36d69e359f346f9077f384702dade9454105418cb9e686fc596370c79e4843
+  fingerprint: 3a36d69e359f346f9077f384702dade9454105418cb9e686fc596370c79e4843
+  sha1: sha256:9de501fdf85c23b7b1c8fbc886ea521d38d15c1e2710e17225a4b316d9e3f3a6
+  packages:
+  - datadog-cluster-agent
+packages:
+- name: datadog-cluster-agent
+  version: e29f30d0c0a6162a8fb19801659e53a40d7e2fa68ce0d7c9c4b13c9a1d8bf04e
+  fingerprint: e29f30d0c0a6162a8fb19801659e53a40d7e2fa68ce0d7c9c4b13c9a1d8bf04e
+  sha1: sha256:bb63faa1dc9aa458ae6ebb07c8934e969e507bb1762e52f793c22d52568cb486
+  dependencies: []
+license:
+  version: 3e1bfe6017d53b457ee5186e88c5d6f39858c4f2eabce9cb42ba984c78bb8130
+  fingerprint: 3e1bfe6017d53b457ee5186e88c5d6f39858c4f2eabce9cb42ba984c78bb8130
+  sha1: sha256:604c4817064dab2b17591fc0e4dd1d88f8d11e7d42eb55f7320939b390c246ae
