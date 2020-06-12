@@ -20,6 +20,7 @@ fi
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 WORKING_DIR="$DIR/.."
+RELEASE_ARCHIVE_NAME="datadog-cluster-agent-boshrelease"
 
 mkdir -p $WORKING_DIR/blobstore
 
@@ -78,10 +79,10 @@ git push
 # cache the blobs
 mkdir -p ./archive
 cp -R $WORKING_DIR/blobstore archive/blobstore
-cp $WORKING_DIR/datadog-agent-cluster-release.tgz archive/datadog-agent-cluster-release.tgz
+cp $WORKING_DIR/$RELEASE_ARCHIVE_NAME.tgz archive/$RELEASE_ARCHIVE_NAME.tgz
 
 if [ "$RELEASE_BUCKET" -a "$RELEASE_BUCKET" != "false" ]; then
     # the production release bucket is cloudfoundry.datadoghq.com/datadog-cluster-agent
-    aws s3 cp datadog-cluster-agent-release.tgz s3://$RELEASE_BUCKET/datadog-cluster-agent-release-$VERSION.tgz --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers full=id=3a6e02b08553fd157ae3fb918945dd1eaae5a1aa818940381ef07a430cf25732
-    aws s3 cp datadog-cluster-agent-release.tgz s3://$RELEASE_BUCKET/datadog-cluster-agent-release-latest.tgz --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers full=id=3a6e02b08553fd157ae3fb918945dd1eaae5a1aa818940381ef07a430cf25732
+    aws s3 cp $RELEASE_ARCHIVE_NAME.tgz s3://$RELEASE_BUCKET/$RELEASE_ARCHIVE_NAME-$VERSION.tgz --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers full=id=3a6e02b08553fd157ae3fb918945dd1eaae5a1aa818940381ef07a430cf25732
+    aws s3 cp $RELEASE_ARCHIVE_NAME.tgz s3://$RELEASE_BUCKET/$RELEASE_ARCHIVE_NAME-latest.tgz --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers full=id=3a6e02b08553fd157ae3fb918945dd1eaae5a1aa818940381ef07a430cf25732
 fi
