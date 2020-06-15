@@ -63,7 +63,7 @@ The JSON object should be a dictionary associating a service name to its Autodis
 For services bound to the application, the `<SERVICE_NAME>` should be the name of the service as it appears in the `cf services` command output, for services running inside the application, it can be anything.  
 The `variables` key is used only for bound services to resolve template variables inside the configuration template. They should contain the JSON path of the value you want in the `VCAP_SERVICES` environment variable that you can inspect with `cf env <APPLICATION_NAME>`.
 
-**Note:** The Datadog Cluster Agent is currently not able to resolve credentials of services using Credhub to store them. Only credentials which are directly available in the `VCAP_SERVICES` environment variable can be used with Autodiscovery.
+**Note:** The Datadog Cluster Agent is currently not able to resolve credentials of services using CredHub to store them. Only credentials directly available in the `VCAP_SERVICES` environment variable can be used with Autodiscovery.
 
 ### Example
 
