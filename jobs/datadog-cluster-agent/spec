@@ -8,6 +8,7 @@ templates:
   bbs_ca.crt.erb: config/bbs_ca.crt
   bbs_client.crt.erb: config/bbs_client.crt
   bbs_client.key.erb: config/bbs_client.key
+  cloud_foundry_api.yaml.erb: config/conf.d/cloud_foundry_api.d/conf.yaml
 
 packages:
   - datadog-cluster-agent
@@ -50,3 +51,42 @@ properties:
   cluster_agent.enabled:
     description: "Whether or not to enable the Cluster Agent"
     default: true
+  cluster_agent.enable_cloud_foundry_api_check:
+    default: false
+    description: Whether or not to enable the
+  cluster_agent.cloud_foundry_api_check_config:
+    default: ""
+    description: |
+      Cloud Foundry API integration YAML configuration. See [example configuration](http://github.com/DataDog/integrations-core/blob/master/cloud_foundry_api/datadog_checks/cloud_foundry_api/data/conf.yaml.example) for all available options.
+      Use instead of the following individual properties for full customization of the integration.
+  cloud_foundry_api.api_url:
+    default: ""
+    description: Cloud Foundry API URL where the integration collects events.
+  cloud_foundry_api.client_id:
+    default: ""
+    description: Client ID to authenticate with the UAA server. It needs to have the `admin.read_only` scope for the integration to work properly.
+  cloud_foundry_api.client_secret:
+    default: ""
+    description: Client secret to authenticate with the UAA server.
+  cloud_foundry_api.event_filter:
+    default:
+      - audit.app.restage
+      - audit.app.update
+      - audit.app.create
+      - app.crash
+    description: A list of audit event types to collect from the API.
+  cloud_foundry_api.tags:
+    default: []
+    description: A list of custom tags to attach to the data sent to Datadog.
+  cloud_foundry_api.skip_ssl_validation:
+    default: false
+    description: Whether or not to validate the SSL certificate when connecting to the Cloud Foundry API.
+  cloud_foundry_api.https_proxy:
+    default: ""
+    description: URL of the HTTPS Proxy.
+  cloud_foundry_api.http_proxy:
+    default: ""
+    description: URL of the HTTP Proxy.
+  cloud_foundry_api.no_proxy:
+    default: []
+    description: List of domains for which requests should go through a proxy.

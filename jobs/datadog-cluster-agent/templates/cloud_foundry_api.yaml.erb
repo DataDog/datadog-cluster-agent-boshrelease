@@ -1,0 +1,31 @@
+cluster_check: true
+<% if p("cluster_agent.enable_cloud_foundry_api_check") %>
+  <%
+    full_config = p("cluster_agent.cloud_foundry_api_check_config", "")
+    if full_config != ""  # Use the full config YAML if specified
+  %>
+<%= full_config %>
+  <%
+    else  # Configure only the main parameters with individual properties, useful with the tile to simplify configuration
+  %>
+init_config: {}
+instances:
+- api_url: <%= p("cloud_foundry_api.api_url") %>
+  client_id: <%= p("cloud_foundry_api.client_id") %>
+  client_secret: <%= p("cloud_foundry_api.client_secret") %>
+  event_filter: <%= p("cloud_foundry_api.event_filter") %>
+  tags: <%= p("cloud_foundry_api.tags") %>
+  tls_verify: <%= !p("cloud_foundry_api.skip_ssl_validation") %>
+    <%
+      https_proxy = p("cloud_foundry_api.https_proxy", "")
+      http_proxy = p("cloud_foundry_api.http_proxy", "")
+      no_proxy = p("cloud_foundry_api.no_proxy", [])
+      if https_proxy != "" || http_proxy != "" || no_proxy != []
+    %>
+  proxy:
+    <% if https_proxy != "" %>https_proxy: <%= https_proxy %><% end %>
+    <% if http_proxy != "" %>http_proxy: <%= http_proxy %><% end %>
+    <% if no_proxy != [] %>no_proxy: <%= no_proxy %><% end %>
+    <% end %>
+  <% end %>
+<% end %>
