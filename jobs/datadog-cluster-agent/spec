@@ -53,12 +53,12 @@ properties:
     default: true
   cluster_agent.enable_cloud_foundry_api_check:
     default: false
-    description: Whether or not to enable the
+    description: Whether or not to enable the Cloud Foundry API integration.
   cluster_agent.cloud_foundry_api_check_config:
     default: ""
     description: |
       Cloud Foundry API integration YAML configuration. See [example configuration](http://github.com/DataDog/integrations-core/blob/master/cloud_foundry_api/datadog_checks/cloud_foundry_api/data/conf.yaml.example) for all available options.
-      Use instead of the following individual properties for full customization of the integration.
+      Use this instead of the following individual properties for full customization of the integration.
   cloud_foundry_api.api_url:
     default: ""
     description: Cloud Foundry API URL where the integration collects events.
