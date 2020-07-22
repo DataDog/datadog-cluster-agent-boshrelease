@@ -89,4 +89,4 @@ properties:
     description: URL of the HTTP Proxy.
   cloud_foundry_api.no_proxy:
     default: []
-    description: List of domains for which requests should go through a proxy.
+    description: List of domains for which requests should skip proxy.
