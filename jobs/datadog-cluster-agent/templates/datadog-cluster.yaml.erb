@@ -4,6 +4,8 @@ api_key: "" # TODO: template
 log_level: "<%= p("cluster_agent.log_level") %>"
 log_file: "/var/vcap/sys/log/datadog-cluster-agent/cluster-agent.log"
 
+confd_path: /var/vcap/jobs/datadog-cluster-agent/config/conf.d
+
 cluster_checks:
   enabled: true
   warmup_duration: <%= p('cluster_agent.warmup_duration') %>
