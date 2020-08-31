@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 / 2020-08-31
+
+* [Added] Bump Datadog Cluster Agent to version 7.22.0.
+
 ## 1.1.0 / 2020-07-24
 
 * [Added] Add ability to configure the Cloud Foundry API check as a cluster check. See [#8](https://github.com/DataDog/datadog-cluster-agent-boshrelease/pull/8).
