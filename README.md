@@ -29,7 +29,7 @@ jobs:
 
 **Note**: This creates a DNS alias for the Datadog Cluster Agent service, that can be used to address its VM. See [this page](https://bosh.io/docs/dns/#aliases-to-services) for more details on Bosh DNS aliases.
 
-This DNS alias can be specified in the [job property `cluster_agent.address`](https://bosh.io/jobs/dd-agent?source=github.com/DataDog/datadog-agent-boshrelease&version=4.0.0#p%3dcluster_agent.address) of the Datadog Agent runtime configuration, like so:
+This DNS alias is to be specified in the [job property `cluster_agent.address`](https://bosh.io/jobs/dd-agent?source=github.com/DataDog/datadog-agent-boshrelease&version=4.0.0#p%3dcluster_agent.address) of the Datadog Agent runtime configuration, like so:
 
 ```yaml
 jobs:
