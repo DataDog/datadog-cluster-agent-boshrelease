@@ -6,7 +6,7 @@ This package is to be used in conjunction with the [Datadog Agent Bosh Release](
 It provides a Bosh link (see [spec](jobs/datadog-cluster-agent/spec)) consumed by the Datadog Agent Bosh release in order to Autodiscover and schedule integrations for your apps, as well as improved tagging for application containers and processes discovery.
 
 ## Deployment
-To deploy the Datadog Cluster Agent and share its Bosh link, provide a job like the following in a deploy manifest (refer to the [spec](jobs/datadog-cluster-agent/spec) for available properties):
+To deploy the Datadog Cluster Agent make it discoverable by the Datadog Agent, provide a job like the following in a deploy manifest (refer to the [spec](jobs/datadog-cluster-agent/spec) for available properties):
 
 ```yaml
 jobs:
@@ -23,23 +23,23 @@ jobs:
       bbs_client_key: <CLIENT_PRIVATE_KEY>
   provides:
     datadog-cluster-agent:
-      as: datadog-cluster-agent-link
-      shared: true
+      aliases:
+        - domain: <DNS_NAME (e.g. datadog-cluster-agent)>
 ```
 
-**Note**: The Bosh link needs to be shared as the Datadog Agent is deployed as an addon in the Bosh Director runtime config, and runs in different deployments than the Datadog Cluster Agent.
+**Note**: This creates a DNS alias for the Datadog Cluster Agent service, that can be used to address its VM. See [this page](https://bosh.io/docs/dns/#aliases-to-services) for more details on Bosh DNS aliases.
 
-This Bosh link can be consumed in the Datadog Agent by specifying a `consumes` key in the job definition of the Datadog Agent runtime configuration, like so:
+This DNS alias can be specified in the [job property `cluster_agent.address`](https://bosh.io/jobs/dd-agent?source=github.com/DataDog/datadog-agent-boshrelease&version=4.0.0#p%3dcluster_agent.address) of the Datadog Agent runtime configuration, like so:
 
 ```yaml
 jobs:
 - name: datadog-agent
   release: datadog-agent
-  properties: <PROPERTIES>
-  consumes:
-    datadog-cluster-agent:
-      from: datadog-cluster-agent-link
-      deployment: <NAME_OF_CLUSTER_AGENT_DEPLOYMENT>
+  properties: 
+    ...
+    cluster_agent:
+      address: <DNS_NAME>
+    ...
 ```
 
 ## Integration configurations discovery
