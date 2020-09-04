@@ -6,7 +6,7 @@ This package is to be used in conjunction with the [Datadog Agent Bosh Release](
 It provides a Bosh link (see [spec](jobs/datadog-cluster-agent/spec)) consumed by the Datadog Agent Bosh release in order to Autodiscover and schedule integrations for your apps, as well as improved tagging for application containers and processes discovery.
 
 ## Deployment
-To deploy the Datadog Cluster Agent make it discoverable by the Datadog Agent, provide a job like the following in a deploy manifest (refer to the [spec](jobs/datadog-cluster-agent/spec) for available properties):
+To deploy the Datadog Cluster Agent and make it discoverable by the Datadog Agent, provide a job like the following in a deploy manifest (refer to the [spec](jobs/datadog-cluster-agent/spec) for available properties):
 
 ```yaml
 jobs:
