@@ -3,7 +3,6 @@ set -e
 
 BLOBS_D="$(pwd)/blobs"
 BLOB="datadog-cluster-agent/datadog-cluster-agent-cloudfoundry.tar.xz"
-SPEC="$(pwd)/packages/datadog-cluster-agent/spec"
 DEFAULT_CLUSTER_AGENT_VERSION="7.22.0"
 CLUSTER_AGENT_VERSION=${1:-$DEFAULT_CLUSTER_AGENT_VERSION}
 if echo "$CLUSTER_AGENT_VERSION" | grep -E "devel\.git\.|rc\."; then
