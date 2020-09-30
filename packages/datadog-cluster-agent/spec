@@ -2,4 +2,4 @@
 name: datadog-cluster-agent
 
 files:
-- datadog-cluster-agent/datadog-cluster-agent-cloudfoundry.tar.xz  # http://s3.amazonaws.com/dsd6-staging/linux/cluster-agent-cloudfoundry/datadog-cluster-agent-cloudfoundry-7.20.0-rc.2.git.2.68e6468-amd64.tar.xz
+- datadog-cluster-agent/datadog-cluster-agent-cloudfoundry.tar.xz  # http://s3.amazonaws.com/dd-agent/agent7/cluster-agent-cloudfoundry/linux/datadog-cluster-agent-cloudfoundry-7.22.0-amd64.tar.xz
