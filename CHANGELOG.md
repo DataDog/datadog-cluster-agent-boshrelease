@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.0 / 2020-10-13
+
+
 ## 1.2.0 / 2020-08-31
 
 * [Added] Bump Datadog Cluster Agent to version 7.22.0.
