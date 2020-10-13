@@ -2,6 +2,7 @@
 
 ## 1.3.0 / 2020-10-13
 
+* [Added] Bump Datadog Cluster Agent to version 7.23.0. It adds space and org names and IDs as tags to autodiscovered checks and containers.
 
 ## 1.2.0 / 2020-08-31
 
