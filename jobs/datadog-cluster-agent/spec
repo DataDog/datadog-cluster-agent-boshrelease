@@ -90,9 +90,3 @@ properties:
   cloud_foundry_api.no_proxy:
     default: []
     description: List of domains for which requests should skip proxy.
-  cloud_foundry_bbs.env_include:
-    default: []
-    description: List of regular expressions to allow a set of environment variables to be included as container tags.	
-  cloud_foundry_bbs.env_exclude:
-    default: []
-    description: List of regular expressions to forbid a set of environment variables to be included as container tags.

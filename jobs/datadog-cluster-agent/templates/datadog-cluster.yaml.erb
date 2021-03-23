@@ -23,8 +23,6 @@ cloud_foundry_bbs:
   ca_file: "/var/vcap/jobs/datadog-cluster-agent/config/bbs_ca.crt"
   cert_file: "/var/vcap/jobs/datadog-cluster-agent/config/bbs_client.crt"
   key_file: "/var/vcap/jobs/datadog-cluster-agent/config/bbs_client.key"
-  env_include: <%= p("cloud_foundry_bbs.env_include", []) %>
-  env_exclude: <%= p("cloud_foundry_bbs.env_exclude", []) %>
 
 config_providers:
   - name: cloudfoundry-bbs
