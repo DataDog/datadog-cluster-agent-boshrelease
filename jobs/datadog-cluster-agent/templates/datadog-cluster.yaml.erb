@@ -26,6 +26,15 @@ cloud_foundry_bbs:
   env_include: <%= p("cloud_foundry_bbs.env_include", []) %>
   env_exclude: <%= p("cloud_foundry_bbs.env_exclude", []) %>
 
+<% if p("cluster_agent.enable_cloud_foundry_api_apps_polling") %>
+cloud_foundry_cc:
+  url: <%= p("cloud_foundry_api.api_url") %>
+  client_id: <%= p("cloud_foundry_api.client_id") %>
+  client_secret: <%= p("cloud_foundry_api.client_secret") %>
+  poll_interval: <%= p("cloud_foundry_api.poll_interval") %>
+  skip_ssl_validation: <%= p("cloud_foundry_api.skip_ssl_validation") %>
+<% end %>
+
 config_providers:
   - name: cloudfoundry-bbs
     polling: true

@@ -51,6 +51,9 @@ properties:
   cluster_agent.enabled:
     description: "Whether or not to enable the Cluster Agent"
     default: true
+  cluster_agent.enable_cloud_foundry_api_apps_polling:
+    default: false
+    description: Whether or not to poll the apps endpoint of the Cloud Foundry API for improved tagging functionality of containers.
   cluster_agent.enable_cloud_foundry_api_check:
     default: false
     description: Whether or not to enable the Cloud Foundry API integration.
@@ -62,6 +65,9 @@ properties:
   cloud_foundry_api.api_url:
     default: ""
     description: Cloud Foundry API URL where the integration collects events.
+  cloud_foundry_api.poll_interval:
+    default: 60
+    description: Polling rate of CC API, in seconds. Values lower than 10 might influence performance of other operations in the cluster.
   cloud_foundry_api.client_id:
     default: ""
     description: Client ID to authenticate with the UAA server. It needs to have the `admin.read_only` scope for the integration to work properly.
@@ -92,7 +98,7 @@ properties:
     description: List of domains for which requests should skip proxy.
   cloud_foundry_bbs.env_include:
     default: []
-    description: List of regular expressions to allow a set of environment variables to be included as container tags.	
+    description: List of regular expressions to allow a set of environment variables to be included as container tags.
   cloud_foundry_bbs.env_exclude:
     default: []
     description: List of regular expressions to forbid a set of environment variables to be included as container tags.
