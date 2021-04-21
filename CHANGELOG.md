@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.6.0 / 2021-04-20
+
+* [Added] Add option to poll Cloud Foundry API for more advanced container tagging. See [#18](https://github.com/DataDog/datadog-cluster-agent-boshrelease/pull/18).
+* [Added] Add option to send application environment variables as custom container tags. See [#16](https://github.com/DataDog/datadog-cluster-agent-boshrelease/pull/16).
+
 ## 1.5.0 / 2021-01-21
 
 * [Added] Bump Datadog Cluster Agent to version 7.25.0. 
