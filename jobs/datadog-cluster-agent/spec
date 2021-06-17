@@ -3,7 +3,7 @@ name: datadog-cluster-agent
 description: Datadog Cluster Agent for Cloud Foundry
 
 templates:
-  datadog-cluster-agent-ctl: bin/datadog-cluster-agent-ctl
+  datadog-cluster-agent-ctl.erb: bin/datadog-cluster-agent-ctl
   datadog-cluster.yaml.erb: config/datadog-cluster.yaml
   bbs_ca.crt.erb: config/bbs_ca.crt
   bbs_client.crt.erb: config/bbs_client.crt
