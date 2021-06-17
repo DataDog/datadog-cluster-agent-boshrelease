@@ -30,6 +30,7 @@ case ${1:-help} in
   start)
     echon_log "Starting Datadog Cluster Agent: "
     (
+       ulimit -n <%= p("cluster_agent.ulimit_files") %>
         {
             exec chpst -v -u vcap:vcap $AGENT_COMMAND
         } >>${LOG_DIR}/${NAME}.stdout.log \
