@@ -3,7 +3,7 @@ name: datadog-cluster-agent
 description: Datadog Cluster Agent for Cloud Foundry
 
 templates:
-  datadog-cluster-agent-ctl: bin/datadog-cluster-agent-ctl
+  datadog-cluster-agent-ctl.erb: bin/datadog-cluster-agent-ctl
   datadog-cluster.yaml.erb: config/datadog-cluster.yaml
   bbs_ca.crt.erb: config/bbs_ca.crt
   bbs_client.crt.erb: config/bbs_client.crt
@@ -51,6 +51,9 @@ properties:
   cluster_agent.enabled:
     description: "Whether or not to enable the Cluster Agent"
     default: true
+  cluster_agent.ulimit_files:
+    description: "The limit of open file descriptors for the cluster agent process. Increase if you have a large number of VMs in your environmnent, to allow more HTTP connections to the cluster agent API."
+    default: 1024
   cluster_agent.enable_cloud_foundry_api_apps_polling:
     default: false
     description: Whether or not to poll the apps endpoint of the Cloud Foundry API for improved tagging functionality of containers.
