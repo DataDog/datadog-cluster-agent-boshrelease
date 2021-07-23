@@ -18,7 +18,6 @@ cloud_foundry: true
 
 cloud_foundry_bbs:
   url: "<%= p('cluster_agent.bbs_url') %>"
-  locket_api_location: "<%= p('cluster_agent.locket_api_location') %>"
   poll_interval: <%= p('cluster_agent.bbs_poll_interval') %>
   ca_file: "/var/vcap/jobs/datadog-cluster-agent/config/bbs_ca.crt"
   cert_file: "/var/vcap/jobs/datadog-cluster-agent/config/bbs_client.crt"
