@@ -45,6 +45,9 @@ properties:
   cluster_agent.port:
     description: "Port on which the Cluster Agent can be reached by Node Agents"
     default: 5005
+  cluster_agent.force_tls_12:
+    description: Whether or not to force TLS 1.2 for agent HTTPS communications.
+    default: false
   cluster_agent.enabled:
     description: "Whether or not to enable the Cluster Agent"
     default: true
