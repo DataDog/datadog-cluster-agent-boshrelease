@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.7.0 / 2021-08-16
+
+* [Added] Add option to force use of TLS 1.2. See [#22](https://github.com/DataDog/datadog-cluster-agent-boshrelease/pull/22).
+* [Added] Add configuration option for CC API list app endpoint batch size. See [#21](https://github.com/DataDog/datadog-cluster-agent-boshrelease/pull/21).
+* [Added] Add property to specify ulimit for number of open file descriptors. See [#20](https://github.com/DataDog/datadog-cluster-agent-boshrelease/pull/20).
+* [Added] Bump Datadog Cluster Agent to version 7.30.0. Read more about it [here](https://github.com/DataDog/datadog-agent/blob/master/CHANGELOG.rst#7300--6300).
+
 ## 1.6.0 / 2021-04-20
 
 * [Added] Add option to poll Cloud Foundry API for more advanced container tagging. See [#18](https://github.com/DataDog/datadog-cluster-agent-boshrelease/pull/18).
