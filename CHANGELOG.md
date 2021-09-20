@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.8.0 / 2021-09-20
+* [Added] Bump Datadog Cluster Agent to version 7.31.0. Read more about it [here](https://github.com/DataDog/datadog-agent/blob/main/CHANGELOG.rst#7310--6310).
+
 ## 1.7.0 / 2021-08-16
 
 * [Added] Add option to force use of TLS 1.2. See [#22](https://github.com/DataDog/datadog-cluster-agent-boshrelease/pull/22).
@@ -14,11 +17,11 @@
 
 ## 1.5.0 / 2021-01-21
 
-* [Added] Bump Datadog Cluster Agent to version 7.25.0. 
+* [Added] Bump Datadog Cluster Agent to version 7.25.0.
 
 ## 1.4.0 / 2020-12-14
 
-* [Added] Bump Datadog Cluster Agent to version 7.24.0. 
+* [Added] Bump Datadog Cluster Agent to version 7.24.0.
 
 ## 1.3.0 / 2020-10-13
 
