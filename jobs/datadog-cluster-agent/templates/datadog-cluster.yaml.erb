@@ -15,6 +15,7 @@ cluster_checks:
 cluster_agent:
   cmd_port: <%= p('cluster_agent.port') %>
   auth_token: "<%= p('cluster_agent.token') %>"
+  serve_nozzle_data: <%= p('cluster_agent.serve_nozzle_data') %>
 
 cloud_foundry: true
 
