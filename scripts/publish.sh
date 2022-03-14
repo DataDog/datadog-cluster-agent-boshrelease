@@ -32,6 +32,20 @@ if [ ! -f "/usr/local/bin/bosh" ]; then
   export PATH="$WORKING_DIR/bin:$PATH"
 fi
 
+# get github credentials
+mkdir -p ~/.ssh
+aws ssm get-parameter --name ci.datadog-agent-boshrelease.ssh_private_key --with-decryption --query "Parameter.Value" --out text --region us-east-1 > ~/.ssh/id_rsa_github
+chmod 400 ~/.ssh/id_rsa_github
+
+# setup ssh key
+eval `ssh-agent -s`
+ssh-add ~/.ssh/id_rsa_github
+ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+
+# config git
+git config --global user.email "Robot-Github-IntegrationToolsandLibraries@datadoghq.com"
+git config --global user.name "robot-github-intg-tools"
+git remote set-url origin git@github.com:DataDog/datadog-cluster-agent-boshrelease.git
 git config --global push.default simple
 git checkout $REPO_BRANCH
 
@@ -70,20 +84,6 @@ fi
 # upload the blobs
 bosh upload-blobs
 
-# get github credentials
-mkdir -p ~/.ssh
-aws ssm get-parameter --name ci.datadog-agent-boshrelease.ssh_private_key --with-decryption --query "Parameter.Value" --out text --region us-east-1 > ~/.ssh/id_rsa_github
-chmod 400 ~/.ssh/id_rsa_github
-
-# setup ssh key
-eval `ssh-agent -s`
-ssh-add ~/.ssh/id_rsa_github
-ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-
-# config git
-git config --global user.email "Robot-Github-IntegrationToolsandLibraries@datadoghq.com"
-git config --global user.name "robot-github-intg-tools"
-git remote set-url origin git@github.com:DataDog/datadog-cluster-agent-boshrelease.git
 
 # git commit it and then push it to the repo
 git add .final_builds/ releases/ config/blobs.yml
