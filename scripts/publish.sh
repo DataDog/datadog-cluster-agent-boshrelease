@@ -47,6 +47,7 @@ git config --global user.email "Robot-Github-IntegrationToolsandLibraries@datado
 git config --global user.name "robot-github-intg-tools"
 git remote set-url origin git@github.com:DataDog/datadog-cluster-agent-boshrelease.git
 git config --global push.default simple
+git fetch
 git checkout $REPO_BRANCH
 
 cp $WORKING_DIR/config/final.yml.s3 $WORKING_DIR/config/final.yml
@@ -83,7 +84,6 @@ fi
 
 # upload the blobs
 bosh upload-blobs
-
 
 # git commit it and then push it to the repo
 git add .final_builds/ releases/ config/blobs.yml
