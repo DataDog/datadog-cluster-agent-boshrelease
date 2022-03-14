@@ -83,7 +83,7 @@ ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 # config git
 git config --global user.email "Robot-Github-IntegrationToolsandLibraries@datadoghq.com"
 git config --global user.name "robot-github-intg-tools"
-git remote set-url origin git@github.com:DataDog/datadog-agent-boshrelease.git
+git remote set-url origin git@github.com:DataDog/datadog-cluster-agent-boshrelease.git
 
 # git commit it and then push it to the repo
 git add .final_builds/ releases/ config/blobs.yml
