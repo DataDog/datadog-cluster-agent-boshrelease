@@ -67,7 +67,7 @@ properties:
       Use this instead of the following individual properties for full customization of the integration.
   cluster_agent.serve_nozzle_data:
     default: false
-    description: Whether or not to serve data for the nozzles.
+    description: Whether or not to serve preprocessed data for the nozzles.
   cloud_foundry_api.api_url:
     default: ""
     description: Cloud Foundry API URL where the integration collects events.
