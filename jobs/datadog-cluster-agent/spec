@@ -68,9 +68,6 @@ properties:
   cluster_agent.serve_nozzle_data:
     default: false
     description: Whether or not to serve preprocessed data for the nozzles.
-  cluster_agent.advanced_tagging:
-    default: false
-    decscription: Whether or not to collect extra tags such as `sidecar_present` and `sidecar_count` for containers.
   cloud_foundry_api.api_url:
     default: ""
     description: Cloud Foundry API URL where the integration collects events.
