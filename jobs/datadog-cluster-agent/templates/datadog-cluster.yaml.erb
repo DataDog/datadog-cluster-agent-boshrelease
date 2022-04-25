@@ -16,7 +16,6 @@ cluster_agent:
   cmd_port: <%= p('cluster_agent.port') %>
   auth_token: "<%= p('cluster_agent.token') %>"
   serve_nozzle_data: <%= p('cluster_agent.serve_nozzle_data') %>
-  advanced_tagging: <%= p('cluster_agent.advanced_tagging') %>
 
 cloud_foundry: true
 
@@ -29,7 +28,7 @@ cloud_foundry_bbs:
   env_include: <%= p("cloud_foundry_bbs.env_include", []) %>
   env_exclude: <%= p("cloud_foundry_bbs.env_exclude", []) %>
 
-<% if p("cluster_agent.enable_cloud_foundry_api_apps_polling") or p('cluster_agent.serve_nozzle_data') or p('cluster_agent.advanced_tagging') %>
+<% if p("cluster_agent.enable_cloud_foundry_api_apps_polling") or p('cluster_agent.serve_nozzle_data') %>
 cloud_foundry_cc:
   url: <%= p("cloud_foundry_api.api_url") %>
   client_id: <%= p("cloud_foundry_api.client_id") %>
