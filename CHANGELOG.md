@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.0 / 2022-06-09
+
+* [Added] Bump Datadog Cluster Agent to version 7.36.1. Read more about it [here](https://github.com/DataDog/datadog-agent/blob/main/CHANGELOG.rst#7361--6361).
+
 ## 2.1.1 / 2022-04-25
 
 * [Added] Add option to serve nozzle data to reduce the load on the CAPI. See [#34](https://github.com/DataDog/datadog-cluster-agent-boshrelease/pull/34).
