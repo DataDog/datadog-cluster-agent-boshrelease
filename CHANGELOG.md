@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.0 / 2022-08-03
+
+* [Added] Bump Datadog Cluster Agent to version 7.37.1. Read more about it [here](https://github.com/DataDog/datadog-agent/blob/main/CHANGELOG.rst#7371--6371).
+
 ## 2.2.1 / 2022-07-11
 
 * [Added] Add option to enable advanced tagging. See [#39](https://github.com/DataDog/datadog-cluster-agent-boshrelease/pull/39).
