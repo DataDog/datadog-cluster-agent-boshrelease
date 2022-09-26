@@ -70,7 +70,13 @@ properties:
     description: Whether or not to serve preprocessed data for the nozzles.
   cluster_agent.advanced_tagging:
     default: false
+    decscription: Whether or not to collect all extra tags (sidecars, isolation segments) for containers.
+  cluster_agent.sidecars_tags:
+    default: false
     decscription: Whether or not to collect extra tags such as `sidecar_present` and `sidecar_count` for containers.
+  cluster_agent.isolation_segments_tags:
+    default: false
+    decscription: Whether or not to collect extra tags such as `segment_id` and `segment_name` for containers.
   cloud_foundry_api.api_url:
     default: ""
     description: Cloud Foundry API URL where the integration collects events.
