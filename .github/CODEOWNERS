@@ -3,9 +3,9 @@
 # and another team can own the rest of the directory.
 
 # All your base
-*                       @DataDog/integrations-tools-and-libraries
+*                       @DataDog/platform-integrations
 
 # Documentation
-*.md                    @DataDog/documentation @DataDog/integrations-tools-and-libraries
-LICENSE                 @DataDog/documentation @DataDog/integrations-tools-and-libraries
-LICENSE-3rdparty.csv    @DataDog/documentation @DataDog/integrations-tools-and-libraries
+*.md                    @DataDog/documentation @DataDog/platform-integrations
+LICENSE                 @DataDog/documentation @DataDog/platform-integrations
+LICENSE-3rdparty.csv    @DataDog/documentation @DataDog/platform-integrations
