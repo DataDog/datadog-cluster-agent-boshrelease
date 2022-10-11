@@ -79,7 +79,7 @@ properties:
     decscription: Whether or not to collect extra tags such as `segment_id` and `segment_name` for containers.
   cluster_agent.refresh_on_cache_miss:
     default: false
-    description: Whether or not to query the CAPI on cache misses in the cluster agent.
+    description: Whether or not to query the CAPI on cache miss in the cluster agent.
   cloud_foundry_api.api_url:
     default: ""
     description: Cloud Foundry API URL where the integration collects events.
