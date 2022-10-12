@@ -1,4 +1,4 @@
-api_key: "" # TODO: template
+api_key: <%= p('cluster_agent.api_key') %>
 
 <% if p("cluster_agent.enabled") == true %>
 log_level: "<%= p("cluster_agent.log_level") %>"
