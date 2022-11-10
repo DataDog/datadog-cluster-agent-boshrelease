@@ -16,8 +16,8 @@ cluster_agent:
   cmd_port: <%= p('cluster_agent.port') %>
   auth_token: "<%= p('cluster_agent.token') %>"
   serve_nozzle_data: <%= p('cluster_agent.serve_nozzle_data') %>
-  sidecars_tags: <%= p('cluster_agent.sidecars_tags') || p('cluster_agent.advanced_tags') %>
-  isolation_segments_tags: <%= p('cluster_agent.isolation_segments_tags')  || p('cluster_agent.advanced_tags')  %>
+  sidecars_tags: <%= p('cluster_agent.sidecars_tags') || p('cluster_agent.advanced_tagging') %>
+  isolation_segments_tags: <%= p('cluster_agent.isolation_segments_tags')  || p('cluster_agent.advanced_tagging')  %>
   refresh_on_cache_miss: <%= p('cluster_agent.refresh_on_cache_miss') %>
 
 cloud_foundry: true
