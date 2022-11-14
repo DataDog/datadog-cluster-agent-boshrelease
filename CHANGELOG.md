@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.4.0 / 2022-11-14
+
+* [Added] Bump Datadog Cluster Agent to version 7.40.1. Read more about it [here](https://github.com/DataDog/datadog-agent/blob/main/CHANGELOG.rst#7401--6401).
+* [Added] Add `api_key` property to support the flare command. See [#45](https://github.com/DataDog/datadog-cluster-agent-boshrelease/pull/45).
+* [Added] Add `refresh_on_cache_miss`, `sidecars_tags`, and `isolation_segments_tags` properties. See [#44](https://github.com/DataDog/datadog-cluster-agent-boshrelease/pull/44).
+
 ## 2.3.0 / 2022-08-03
 
 * [Added] Bump Datadog Cluster Agent to version 7.37.1. Read more about it [here](https://github.com/DataDog/datadog-agent/blob/main/CHANGELOG.rst#7371--6371).
