@@ -7,5 +7,3 @@
 
 # Documentation
 *.md                    @DataDog/documentation @DataDog/platform-integrations
-LICENSE                 @DataDog/documentation @DataDog/platform-integrations
-LICENSE-3rdparty.csv    @DataDog/documentation @DataDog/platform-integrations
