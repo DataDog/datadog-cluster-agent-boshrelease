@@ -2,6 +2,7 @@
 
 ## 2.5.1 / 2023-01-13
 
+* Fix the embedded Datadog Cluster Agent version to 7.41.1.
 
 ## 2.5.0 / 2023-01-06
 
