@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.5.1 / 2023-01-13
+
+* Fix the embedded Datadog Cluster Agent version to 7.41.1.
+
 ## 2.5.0 / 2023-01-06
 
 * [Added] Bump Datadog Cluster Agent to version to 7.41.1. Read more about it [here](https://github.com/DataDog/datadog-agent/blob/main/CHANGELOG.rst#7411--6411).
