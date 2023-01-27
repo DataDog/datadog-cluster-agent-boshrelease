@@ -14,7 +14,11 @@ cluster_checks:
 
 cluster_agent:
   cmd_port: <%= p('cluster_agent.port') %>
+  <% if p('cluster_agent.token').length > 0 %>
   auth_token: "<%= p('cluster_agent.token') %>"
+  <% else %>
+  auth_token: "<%= ('0'..'z').to_a.shuffle.first(32).join %>"
+  <% end %>
   serve_nozzle_data: <%= p('cluster_agent.serve_nozzle_data') %>
   sidecars_tags: <%= p('cluster_agent.sidecars_tags') || p('cluster_agent.advanced_tagging') %>
   isolation_segments_tags: <%= p('cluster_agent.isolation_segments_tags')  || p('cluster_agent.advanced_tagging')  %>
