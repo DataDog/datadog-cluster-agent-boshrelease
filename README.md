@@ -14,13 +14,15 @@ jobs:
   release: datadog-cluster-agent
   properties:
     cluster_agent:
-      token: <TOKEN>  # 32 or more characters in length 
+      token: <TOKEN>  # 32 or more characters in length
       bbs_poll_interval: 10
       warmup_duration: 5
       log_level: INFO
       bbs_ca_crt: <CA_CERTIFICATE>
       bbs_client_crt: <CLIENT_CERTIFICATE>
       bbs_client_key: <CLIENT_PRIVATE_KEY>
+      api_key: <DD_API_KEY> # optional, it will only be used to send flares.
+      # See https://docs.datadoghq.com/agent/troubleshooting/send_a_flare/?tab=clusteragent
   provides:
     datadog-cluster-agent:
       aliases:
@@ -35,7 +37,7 @@ This DNS alias is to be specified in the [job property `cluster_agent.address`](
 jobs:
 - name: datadog-agent
   release: datadog-agent
-  properties: 
+  properties:
     ...
     cluster_agent:
       address: <DNS_NAME>
@@ -60,7 +62,7 @@ The JSON object should be a dictionary associating a service name to its Autodis
 }
 ```
 
-For services bound to the application, the `<SERVICE_NAME>` should be the name of the service as it appears in the `cf services` command output, for services running inside the application, it can be anything.  
+For services bound to the application, the `<SERVICE_NAME>` should be the name of the service as it appears in the `cf services` command output, for services running inside the application, it can be anything.
 The `variables` key is used only for bound services to resolve template variables inside the configuration template. They should contain the JSON path of the value you want in the `VCAP_SERVICES` environment variable that you can inspect with `cf env <APPLICATION_NAME>`.
 
 **Note:** The Datadog Cluster Agent is currently not able to resolve credentials of services using CredHub to store them. Only credentials directly available in the `VCAP_SERVICES` environment variable can be used with Autodiscovery.
