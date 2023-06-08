@@ -13,6 +13,10 @@ main() {
     echo "Downloading ${DOWNLOAD_URL} ..."
     curl -L --fail "${DOWNLOAD_URL}" -o "${BLOBS_D}/${BLOB}"
     
+    # setting up the local blobstore
+    cp config/final.yml config/final.yml.bk
+    cp config/final.yml.local config/final.yml
+
     bosh add-blob "${BLOBS_D}/${BLOB}" "$BLOB"
 }
 
