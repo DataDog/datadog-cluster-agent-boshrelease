@@ -2,7 +2,8 @@
 
 ## 2.6.0 / 2023-07-13
 
-* [Added] Bump Datadog Cluster Agent to version 7.46.0. Read more about it [here](https://github.com/DataDog/datadog-agent/blob/main/CHANGELOG.rst#7460--6460).
+* [Added] Bump Datadog Cluster Agent to version 7.46.0. Read more about it [here](https://github.com/DataDog/datadog-agent/blob/main/CHANGELOG.rst#7460--6460).  
+_Contains a fix for a file descriptor leak. See https://github.com/DataDog/datadog-agent/pull/16922._
 * [Changed] Make `api_key` property optional. See [#52](https://github.com/DataDog/datadog-cluster-agent-boshrelease/pull/52).
 
 ## 2.5.1 / 2023-01-13
