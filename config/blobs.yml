@@ -1,4 +1,4 @@
 datadog-cluster-agent/datadog-cluster-agent-cloudfoundry.tar.xz:
-  size: 104273920
-  object_id: 4cf36481-bfbf-4a3c-77c2-56d9b0b27407
-  sha: sha256:12bdd42cae21152fd462483d1ccbcd7a0e18212cbac7575cef5593cbbb10d4a5
+  size: 74905600
+  object_id: 447051e6-ece8-4314-46f7-0d9e1ff02b21
+  sha: sha256:96cc74bd05abd3c9ab1ec71e72a4246af160b8e68d2a65ad23bed920532728f9
