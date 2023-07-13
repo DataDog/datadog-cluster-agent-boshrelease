@@ -43,4 +43,6 @@ builds:
     version: 1.9.3
   f5a9eeee-41a0-4438-4834-cfabcdf7b7c4:
     version: 1.7.0
+  fd0e5e91-317f-4aaa-4088-33f4c46d8ce6:
+    version: 2.6.0
 format-version: "2"
