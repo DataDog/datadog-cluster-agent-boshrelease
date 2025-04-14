@@ -48,7 +48,7 @@ config_providers:
     polling: true
 
 listeners:
-  - name: cloudfoundry-bbs
+  - name: cloudfoundry_bbs # TODO: temporary fix, revert to cloudfoundry-bbs after agent 7.66
 
 leader_election: false
 <% end %>
