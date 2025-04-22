@@ -2,7 +2,7 @@
 
 ## 2.12.0 / 2025-04-22
 
-* [Added] Bump Datadog Cluster Agent to version 7.64.2. Read more about it [here](https://github.com/DataDog/datadog-agent/blob/main/CHANGELOG.rst#7642).
+* [Added] Bump Datadog Cluster Agent to version 7.64.2. Read more about it [here](https://github.com/DataDog/datadog-agent/blob/main/CHANGELOG-DCA.rst#7642).
 * [Fixed] Fix clusterchecks dispatching in the Cluster Agent. See [#69](https://github.com/DataDog/datadog-cluster-agent-boshrelease/pull/69).
 
 ## 2.11.0 / 2024-12-11
