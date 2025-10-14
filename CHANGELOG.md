@@ -4,7 +4,6 @@
 
 * [Added] Bump Datadog Cluster Agent to version 7.70.2. Read more about it [here](https://github.com/DataDog/datadog-agent/blob/main/CHANGELOG.rst#7702--6702).
 * [Changed] Update the cloudfoundry-bbs listener name for Cluster Agent 7.70. See [#73](https://github.com/DataDog/datadog-cluster-agent-boshrelease/pull/73).
-* [Changed] Bump cluster agent version to 7.70.2. See [#72](https://github.com/DataDog/datadog-cluster-agent-boshrelease/pull/72).
 
 ## 2.12.0 / 2025-04-22
 
