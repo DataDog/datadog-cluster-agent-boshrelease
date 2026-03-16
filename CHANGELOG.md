@@ -3,9 +3,7 @@
 ## 2.15.1 / 2026-03-16
 
 * [Added] Bump Datadog Cluster Agent to version 7.76.3. Read more about it [here](https://github.com/DataDog/datadog-agent/blob/main/CHANGELOG.rst#7763).
-## 2.15.0 / 2026-03-13
 
-* [Added] Bump Datadog Cluster Agent to version 7.76.3. Read more about it [here](https://github.com/DataDog/datadog-agent/blob/main/CHANGELOG.rst#7763).
 ## 2.14.0 / 2025-10-28
 
 * [Added] Bump Datadog Cluster Agent to version 7.71.2. Read more about it [here](https://github.com/DataDog/datadog-agent/blob/main/CHANGELOG.rst#7712).
