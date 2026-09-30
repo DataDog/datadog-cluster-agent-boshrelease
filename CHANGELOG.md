@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.16.0 / 2026-09-01
+
+* [Added] Bump Datadog Cluster Agent to version 7.80.4. Read more about it [here](https://github.com/DataDog/datadog-agent/blob/main/CHANGELOG.rst#7804).
+
 ## 2.15.1 / 2026-03-16
 
 This release contains no functional changes. It only updates the component version to the intended value.
