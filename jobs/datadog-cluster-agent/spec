@@ -47,6 +47,12 @@ properties:
     default: 5005
   cluster_agent.api_key:
     description: Datadog API key
+  cluster_agent.site:
+    description: Datadog site for the Cluster Agent.
+    default: datadoghq.com
+  cluster_agent.convert_dd_site_fqdn.enabled:
+    description: Whether to convert Datadog site hostnames to fully qualified domain names with a trailing dot.
+    default: true
   cluster_agent.force_tls_12:
     description: Whether or not to force TLS 1.2 for agent HTTPS communications.
     default: false

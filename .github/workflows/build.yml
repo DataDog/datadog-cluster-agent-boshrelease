@@ -26,6 +26,9 @@ jobs:
       - name: Verify BOSH CLI installation
         run: bosh --version
 
+      - name: Test Cluster Agent template rendering
+        run: ruby test/datadog_cluster_template_test.rb
+
       - name: Run prepare script
         run: ./scripts/prepare.sh
 
