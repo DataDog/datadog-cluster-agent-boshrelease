@@ -18,6 +18,9 @@ jobs:
       bbs_poll_interval: 10
       warmup_duration: 5
       log_level: INFO
+      # site: datadoghq.eu
+      # convert_dd_site_fqdn:
+      #   enabled: false
       bbs_ca_crt: <CA_CERTIFICATE>
       bbs_client_crt: <CLIENT_CERTIFICATE>
       bbs_client_key: <CLIENT_PRIVATE_KEY>
@@ -28,6 +31,8 @@ jobs:
       aliases:
         - domain: <DNS_NAME (e.g. datadog-cluster-agent)>
 ```
+
+Under `cluster_agent`, uncomment `site` to use a Datadog site other than the default, `datadoghq.com`. To disable trailing-dot conversion for Datadog site hostnames, set `convert_dd_site_fqdn.enabled` to `false` (default: `true`).
 
 **Note**: This creates a DNS alias for the Datadog Cluster Agent service, that can be used to address its VM. See [this page](https://bosh.io/docs/dns/#aliases-to-services) for more details on Bosh DNS aliases.
 
